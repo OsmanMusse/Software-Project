@@ -14,6 +14,7 @@ class SignInScreen: UIViewController, UITextFieldDelegate{
     
     lazy var emailTextField: CustomTextField = {
        let textField = CustomTextField()
+        print("Hello Woflc")
         textField.delegate = self
         textField.attributedPlaceholder = NSAttributedString(string: "Email or phone number", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 173/255, green: 173/255, blue: 173/255, alpha: 1)])
         textField.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
