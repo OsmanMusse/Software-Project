@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D115A6C24181D47003E7F20 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D115A6B24181D47003E7F20 /* GoogleService-Info.plist */; };
 		D377878222E001A00062AE77 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D377878122E001A00062AE77 /* ProfileScreen.swift */; };
 		D377878622E0FAF20062AE77 /* AppScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D377878522E0FAF20062AE77 /* AppScreen.swift */; };
 		D37877B422E28BBB007FDBC2 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37877B322E28BBB007FDBC2 /* CustomTabBarController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D115A6B24181D47003E7F20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D377878122E001A00062AE77 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		D377878522E0FAF20062AE77 /* AppScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreen.swift; sourceTree = "<group>"; };
 		D37877B322E28BBB007FDBC2 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				D380271F22DEB23C005A2B56 /* Extensions.swift */,
 				D38026ED22DD3E2A005A2B56 /* Assets.xcassets */,
 				D38026EF22DD3E2A005A2B56 /* LaunchScreen.storyboard */,
+				9D115A6B24181D47003E7F20 /* GoogleService-Info.plist */,
 				D38026F222DD3E2A005A2B56 /* Info.plist */,
 			);
 			path = NetflixApp;
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D38026F122DD3E2A005A2B56 /* LaunchScreen.storyboard in Resources */,
+				9D115A6C24181D47003E7F20 /* GoogleService-Info.plist in Resources */,
 				D380271B22DE78E3005A2B56 /* SF-UI-Display-Bold.otf in Resources */,
 				D38026EE22DD3E2A005A2B56 /* Assets.xcassets in Resources */,
 			);
