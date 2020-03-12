@@ -94,9 +94,9 @@ class AppScreen: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     }
     
     func setupNavBar(){
+         
         
-        
-        let netflixLogo = UIBarButtonItem(image: #imageLiteral(resourceName: "netflix (1)").withRenderingMode(.alwaysOriginal), style: .plain, target: nil, action: nil)
+        let netflixLogo = UIBarButtonItem(image: #imageLiteral(resourceName: "netflix-account-1").withRenderingMode(.alwaysOriginal), style: .plain, target: nil, action: nil)
         netflixLogo.imageInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         
         

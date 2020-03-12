@@ -17,7 +17,7 @@ class CustomHeaderCell: UICollectionViewCell, UICollectionViewDelegate {
     }()
     
     let headerImage: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "bodyguard"))
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "netflix-logo"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

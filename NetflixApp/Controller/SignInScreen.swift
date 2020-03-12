@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignInScreen: UIViewController, UITextFieldDelegate{
     
@@ -18,6 +19,7 @@ class SignInScreen: UIViewController, UITextFieldDelegate{
         textField.delegate = self
         textField.attributedPlaceholder = NSAttributedString(string: "Email or phone number", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 173/255, green: 173/255, blue: 173/255, alpha: 1)])
         textField.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        textField.addTarget(self, action: #selector(handleSignUpIndicator), for: .editingChanged)
         textField.layer.cornerRadius = 3
         textField.font = UIFont.systemFont(ofSize: 15)
         textField.textColor = .white
@@ -41,6 +43,7 @@ class SignInScreen: UIViewController, UITextFieldDelegate{
         textField.delegate = self
         textField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 173/255, green: 173/255, blue: 173/255, alpha: 1)])
         textField.backgroundColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        textField.addTarget(self, action: #selector(handleSignUpIndicator), for: .editingChanged)
         textField.layer.cornerRadius = 4
         textField.textColor = .white
         textField.tintColor = .white
@@ -204,9 +207,30 @@ class SignInScreen: UIViewController, UITextFieldDelegate{
     }
     
     @objc func handleSignIn(){
-        navigationController?.pushViewController(ProfileScreen(), animated: true)
+        guard let email = emailTextField.text else {return}
+        guard let password = passwordTextField.text else {return}
+        Firebase.Auth.auth().signIn(withEmail: email, password: password) { (dataResult, err) in
+            if let error = err {
+                print("Problem with Signing in please enter correct information", error)
+                return
+            }
+            
+            print("SucessFully Login In with user: ", dataResult?.user.uid)
+            self.navigationController?.pushViewController(ProfileScreen(), animated: true)
+        }
     }
     
+    @objc func handleSignUpIndicator(){
+         let isFormValid = emailTextField.text?.characters.count ?? 0 > 0 && passwordTextField.text?.characters.count ?? 0 > 0
+        
+        if(isFormValid) {
+            signInButton.backgroundColor = UIColor(red: 229/255, green: 31/255, blue: 19/255, alpha: 1)
+            signInButton.setTitleColor(.white, for: .normal)
+        } else {
+            signInButton.setTitleColor(UIColor(red: 185/255, green: 185/255, blue: 185/255, alpha: 1), for: .normal)
+            signInButton.backgroundColor = .clear
+        }
+    }
     
     
     
