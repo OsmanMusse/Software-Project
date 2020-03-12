@@ -211,7 +211,16 @@ class SignInScreen: UIViewController, UITextFieldDelegate{
         guard let password = passwordTextField.text else {return}
         Firebase.Auth.auth().signIn(withEmail: email, password: password) { (dataResult, err) in
             if let error = err {
-                print("Problem with Signing in please enter correct information", error)
+                  let alertController = UIAlertController(title: "Sign in", message: "Sorry, we can't find an account with this email address. Please try again or create a new account.", preferredStyle: .alert)
+                      let tryAgainAction  =  UIAlertAction(title: "Try Again", style: .default, handler: { (alertAction) in
+                          
+                      })
+                
+    
+                      
+                  
+                      alertController.addAction(tryAgainAction)
+                self.present(alertController, animated: true, completion: nil)
                 return
             }
             

@@ -76,6 +76,11 @@ class HomeScreen: UICollectionViewController, UICollectionViewDelegateFlowLayout
         
         collectionView.backgroundColor = UIColor.black
         
+        
+      
+
+        
+    
 
         // Configure the navigation bar
         setupNavigationbar()
