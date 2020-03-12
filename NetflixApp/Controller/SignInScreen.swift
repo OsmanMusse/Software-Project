@@ -10,10 +10,10 @@ import UIKit
 
 class SignInScreen: UIViewController, UITextFieldDelegate{
     
-
+    
     
     lazy var emailTextField: CustomTextField = {
-       let textField = CustomTextField()
+        let textField = CustomTextField()
         print("Hello Woflc")
         textField.delegate = self
         textField.attributedPlaceholder = NSAttributedString(string: "Email or phone number", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 173/255, green: 173/255, blue: 173/255, alpha: 1)])
@@ -35,7 +35,7 @@ class SignInScreen: UIViewController, UITextFieldDelegate{
         return button
     }()
     
-  
+    
     lazy var passwordTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.delegate = self
@@ -53,10 +53,10 @@ class SignInScreen: UIViewController, UITextFieldDelegate{
         return textField
     }()
     
-
+    
     
     lazy var signInButton: UIButton = {
-       let button = UIButton(type: .system)
+        let button = UIButton(type: .system)
         button.setTitle("Sign In", for: .normal)
         button.setTitleColor(UIColor(red: 185/255, green: 185/255, blue: 185/255, alpha: 1), for: .normal)
         button.backgroundColor = .clear
@@ -72,6 +72,16 @@ class SignInScreen: UIViewController, UITextFieldDelegate{
     let recoverButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Recover Password", for: .normal)
+        button.setTitleColor(UIColor(red: 185/255, green: 185/255, blue: 185/255, alpha: 1), for: .normal)
+        button.backgroundColor = .clear
+        button.titleLabel?.font = UIFont(name: "SFUIDisplay-Bold", size: 13)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let alreadyAccount: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Already have an account? Sign In", for: .normal)
         button.setTitleColor(UIColor(red: 185/255, green: 185/255, blue: 185/255, alpha: 1), for: .normal)
         button.backgroundColor = .clear
         button.titleLabel?.font = UIFont(name: "SFUIDisplay-Bold", size: 13)
@@ -110,17 +120,21 @@ class SignInScreen: UIViewController, UITextFieldDelegate{
     func setupViews() {
         
         view.addSubview(stackView)
+        view.addSubview(alreadyAccount)
         
         stackViewCenterYAnchor = stackView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
         stackViewCenterYAnchor?.isActive = true
         
-
+        
         NSLayoutConstraint.activate([
             
-             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 35),
-             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -35),
-             stackView.heightAnchor.constraint(equalToConstant: 215)
-
+            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 35),
+            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -35),
+            stackView.heightAnchor.constraint(equalToConstant: 215),
+            
+            alreadyAccount.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            alreadyAccount.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
             ])
     }
     
@@ -134,23 +148,23 @@ class SignInScreen: UIViewController, UITextFieldDelegate{
     
     
     @objc func handleKeyboardShow(notification: Notification){
-
+        
         
         if let userInfo = notification.userInfo, let keyboardFrame = userInfo[UIApplication.keyboardFrameBeginUserInfoKey] as? NSValue {
             let cgRect = keyboardFrame.cgRectValue
             print(cgRect.size.width)
             
             stackViewCenterYAnchor?.constant = -30
-
+            
             UIView.animate(withDuration: 0.3, animations: {
-                  self.view.layoutIfNeeded()
+                self.view.layoutIfNeeded()
             })
-
+            
         }
     }
     
     @objc func handleKeyboardHide(){
-         print("Hello")
+        print("Hello")
     }
     
     @objc func handleBackBtn(){
@@ -164,7 +178,7 @@ class SignInScreen: UIViewController, UITextFieldDelegate{
         } else {
             passwordTextField.isSecureTextEntry = false
         }
- 
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -194,6 +208,6 @@ class SignInScreen: UIViewController, UITextFieldDelegate{
     }
     
     
- 
+    
     
 }

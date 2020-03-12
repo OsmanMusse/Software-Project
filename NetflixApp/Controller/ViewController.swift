@@ -100,7 +100,7 @@ class HomeScreen: UICollectionViewController, UICollectionViewDelegateFlowLayout
     }
     
     @objc func handleSignIn(){
-        self.navigationController?.pushViewController(SignInScreen(), animated: true)
+        self.navigationController?.pushViewController(SignUpScreen(), animated: true)
     }
     
     
